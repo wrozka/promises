@@ -72,7 +72,7 @@ describe("Promise", function() {
     expect(callback).toHaveBeenCalledWith("Oops!");
   });
 
-  it("propagates the failure until error handler returns truthy value", function() {
+  it("propagates the failure until error handler returns any value", function() {
     promise.then(expectNotToBeCalled)
            .then(expectNotToBeCalled, function(error) { return "saved " + error; })
            .then(callback, expectNotToBeCalled);
